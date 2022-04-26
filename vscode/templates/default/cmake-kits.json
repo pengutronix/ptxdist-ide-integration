@@ -1,0 +1,6 @@
+[
+    {
+        "name": "platform-{{ bsp.platform }}",
+        "toolchainFile": "{{ develop.target['cmake-toolchain'] }}"
+    }
+]

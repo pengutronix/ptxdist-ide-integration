@@ -1,0 +1,11 @@
+{% import '.launch.json' as launch with context %}
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            {{ launch.remote_gdb("platform-{{ bsp.platform }}",
+                "${command:cmake.launchTargetPath}", ":14242") }}
+            "preLaunchTask": "remote-debug"
+        }
+    ]
+}

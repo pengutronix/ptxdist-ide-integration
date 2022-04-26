@@ -1,0 +1,17 @@
+{% macro remote_gdb(name, executable, target) %}"name": "{{ name }} remote gdb session",
+            "type": "gdb",
+            "request": "attach",
+            "target": "{{ target }}",
+            "gdbpath": "{{ develop.target['toolchain-prefix'] }}/{{ develop.target['compiler-prefix'] }}gdb",
+            "cwd": "${workspaceFolder}",
+            "valuesFormatting": "prettyPrinters",
+            "executable": "{{ executable }}",
+            "remote": true,
+            "printCalls": true,
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],{% endmacro %}

@@ -1,0 +1,5 @@
+    "cmake.cmakePath": "${workspaceFolder}/.vscode/cmake.sh",
+    "cmake.buildDirectory": "${workspaceFolder}/build/${buildKit}/${buildType}",
+    "cmake.environment": {
+        "PATH": "{{ develop.target.path|join(':') }}:${env:PATH}"
+    },

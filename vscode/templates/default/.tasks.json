@@ -1,0 +1,31 @@
+{% macro gdbserver(name, command, args) %}"type": "shell",
+            "command": "{{ command }}",
+            "args": [
+                {{ args }}
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "group": "build",
+            "detail": "Starts the gdbserver for {{ name }} in background and wait for debug session",
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern" : [
+                    {
+                        "regexp": ".",
+                        "file": 1,
+                        "location": 2,
+                        "message": 3
+                    }
+                ],
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*Process*",
+                    "endsPattern": "^.*Listening*"
+                }
+            },{% endmacro %}
